@@ -21,19 +21,29 @@
       padding:20px;
     }
 
-    /* Fade-In für Überschrift, Text und Button – jetzt langsamer */
+    /* Fade-In für Überschrift, Text und Button */
     h1, p, button {
       opacity:0;
       transform:translateY(20px);
       animation:fadeInUp 1.2s ease-out forwards;
     }
-    h1 { animation-delay:0.3s; font-size:4em; letter-spacing:2px; font-weight:700; }
-    p  { animation-delay:1.0s; margin-top:20px; color:#aaa; font-size:1.3em; }
+    h1 {
+      animation-delay:0.3s;
+      font-size:5em;       /* ↑ hier größer gemacht */
+      letter-spacing:2px;
+      font-weight:700;
+    }
+    p  {
+      animation-delay:1.0s;
+      margin-top:20px;
+      color:#aaa;
+      font-size:1.6em;     /* ↑ etwas mehr */
+    }
     button {
       animation-delay:1.7s;
       margin-top:40px;
       padding:12px 28px;
-      font-size:1em;
+      font-size:1.1em;     /* ↑ etwas mehr */
       font-family:sans-serif;
       background:#444;
       color:#fff;
@@ -60,7 +70,7 @@
       font-family:sans-serif;
     }
 
-    /* Modal – initial unsichtbar, mit schneller Transition */
+    /* Modal */
     .modal {
       position:fixed;
       inset:0;
@@ -107,9 +117,9 @@
     }
 
     @media (max-width:600px) {
-      h1 { font-size:2.8em; }
-      p  { font-size:1em; }
-      button { padding:10px 20px; }
+      h1 { font-size:3.5em; }
+      p  { font-size:1.2em; }
+      button { padding:10px 20px; font-size:1em; }
       footer { font-size:1em; }
     }
   </style>
@@ -131,17 +141,11 @@
 
   <script>
     const modal = document.getElementById('emailModal');
-    function openModal() {
-      modal.classList.add('show');
-    }
-    function closeModal() {
-      modal.classList.remove('show');
-    }
-    function copyEmail() {
+    function openModal() { modal.classList.add('show'); }
+    function closeModal(){ modal.classList.remove('show'); }
+    function copyEmail(){
       const txt = document.getElementById('emailText').innerText;
-      navigator.clipboard.writeText(txt).then(() => {
-        alert('Copied: ' + txt);
-      });
+      navigator.clipboard.writeText(txt).then(()=> alert('Copied: '+txt));
     }
   </script>
 </body>
